@@ -1,0 +1,9 @@
+
+receivers:
+  - xxx@yyy.zzz
+
+smtp_server:
+  host: smtp.yyy.zzz
+  user: xxx@yyy.zzz
+  pass: pppppp
+

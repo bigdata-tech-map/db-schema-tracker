@@ -1,0 +1,11 @@
+config/db_metadata.yaml
+config/db_tracking.yaml
+config/email.yaml
+log/tracker*
+bin/*.pyc
+model/*.pyc
+utils/*.pyc
+.idea
+
+diff_results/*
+!diff_results/results_template.html
