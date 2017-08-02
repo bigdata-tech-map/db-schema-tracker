@@ -42,12 +42,13 @@ def FormatHtmlTableTd(rows, if_th=False, emphasized_fields=None):
     if if_th:
         td_template = """<th style="background:#ccc;">%s</th>"""
 
-    td_array = []
+    tr_str = ''
     for e in rows:
+        td_array = []
         for f in SHOWED_COLUMNS_NAMES:
             td_array.append((td_emphasized_template if emphasized_fields is not None and f in emphasized_fields else td_template) % getattr(e, f, ""))
+        tr_str += "\n<tr>%s</tr>" % ("".join(td_array))
 
-    tr_str = "\n<tr>%s</tr>" % ("".join(td_array))
     return tr_str
 
 
@@ -102,7 +103,7 @@ class TableLogModel(BaseModel):
             dics[x] = x
         th_obj = TableLogModel(**dics)
 
-        tr_array = [FormatHtmlTableTd([th_obj, th_obj], True)]
+        tr_array = [FormatHtmlTableTd([th_obj], True)]
         for e in diffx:
             tr_array.append(FormatHtmlTableTd(e['diff_rows'], False, e['diff_fields']))
         return "".join(tr_array)

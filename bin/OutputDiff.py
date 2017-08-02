@@ -43,12 +43,12 @@ class OutputDiff(object):
             title=title,
             version_l=version_l,
             version_r=version_r,
-            table_in_A_not_in_B=table_in_A_not_in_B,
-            table_in_B_not_in_A=table_in_B_not_in_A,
-            table_differences=table_differences,
-            column_in_A_not_in_B=column_in_A_not_in_B,
-            column_in_B_not_in_A=column_in_B_not_in_A,
-            column_differences=column_differences
+            table_in_A_not_in_B=table_in_A_not_in_B, table_in_A_not_in_B_count=len(diff_table_results.exist_l),
+            table_in_B_not_in_A=table_in_B_not_in_A, table_in_B_not_in_A_count=len(diff_table_results.exist_r),
+            table_differences=table_differences, table_differences_count=len(diff_table_results.diff_x),
+            column_in_A_not_in_B=column_in_A_not_in_B, column_in_A_not_in_B_count=len(diff_column_results.exist_l),
+            column_in_B_not_in_A=column_in_B_not_in_A, column_in_B_not_in_A_count=len(diff_column_results.exist_r),
+            column_differences=column_differences, column_differences_count=len(diff_column_results.diff_x),
         )
 
         out_path = DIFF_RESULT.format(id_l=ver_l.id, id_r=ver_r.id, tag_l=ver_l.tag, tag_r=ver_r.tag)
